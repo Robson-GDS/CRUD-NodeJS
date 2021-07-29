@@ -2,9 +2,13 @@ const express = require('express');
 
 const server = express();
 
-server.get('/curso', (request, response) => {
-  
-  return response.send('Teste')
+const cursos = ['Node JS', 'Javascript', 'React Native']
+
+server.get('/curso/:index', (request, response) => {
+  const { index } = request.params;
+
+
+  return response.json(cursos[index]);
 })
 
 server.listen(3000);
