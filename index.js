@@ -35,4 +35,12 @@ server.put('/cursos/:index', (request, response) => {
   return response.json({ message: `Curso ${name} inserido com sucesso`});
 })
 
+// Deletando um curso
+server.delete('/cursos/:index', (request, response) => {
+  const { index } = request.params;
+
+  cursos.splice(index, 1);
+  return response.json({ message: 'Curso deletado com sucesso!'})
+})
+
 server.listen(3000);
